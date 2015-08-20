@@ -1,0 +1,176 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>MSLM Javascript ES2015 Talk</title>
+  <meta name="description" content="MSLM Javascript ES2015 Talk">
+  <meta name="author" content="Nathan and Peter">
+
+  <script src="http://inventaweb.net/js/browser.js"></script>
+</head>
+
+<body>
+
+  <script type="text/babel">
+    "use strict";
+
+    /**************************************************************************************/
+    /* Remove any errors from the code below...                                           */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const */
+    /**************************************************************************************/
+
+    const ES = 2015;
+    //ES = 5
+    console.info('ES', ES);
+
+
+    /************************************************************************************/
+    /* Modify the code below to return 71 and then 42 using let                         */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let */
+    /************************************************************************************/
+    function variableTest() {
+      let x = 42;
+      if (true) {
+        let x = 71;  // same variable!
+        console.info('var inner', x);
+      }
+      console.info('var outer', x);
+    }
+
+    variableTest();
+
+
+    /***********************************************************************************************/
+    /* Modify the code below to use => but return the same value                                   */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions */
+    /***********************************************************************************************/
+
+    var a = [
+      "Hydrogen",
+      "Helium",
+      "Lithium",
+      "Beryl­lium"
+    ];
+
+    var a2 = a.map((s)=>{ return s.length });
+    console.info('Fat Arrow Map', a2);
+
+
+    /***********************************************************************************************/
+    /* Modify the code below to use => and this instead of self but return the same value          */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions */
+    /***********************************************************************************************/
+    function Person() {
+      this.age = 18;
+
+      setInterval(()=>{
+        this.age++;
+        console.info('age', this.age);
+      }, 2000);
+    }
+
+    var p = new Person();
+
+
+
+    /********************************************************************************************************************/
+    /* Give Simba his voice, both current and historical by modifying the Lion class and sending output to the console. */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes                                        */
+    /********************************************************************************************************************/
+
+    class Cat {
+      constructor(name) {
+        this.name = name;
+      }
+
+      speak() {
+        console.info('Class', this.name + ' purrs.');
+      }
+    }
+
+    class Lion extends Cat {
+      speak() {
+        super.speak();
+        console.info('Class', this.name + ' roars.');
+      }
+    }
+
+    let l = new Lion('Simba');
+
+    l.speak();
+
+    /**************************************************************************************************/
+    /* Modify the code below to use default parameters                                                */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters */
+    /**************************************************************************************************/
+
+    function mult(a, b=1) {
+      return a*b;
+    }
+
+    console.info('mult', mult(5));
+
+
+
+    /***********************************************************************************************/
+    /* Modify the code below to use rest parameters                                                */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters */
+    /***********************************************************************************************/
+
+    function multiply(multiplier, ...theArgs) {
+      return theArgs.map(function (element) {
+        return multiplier * element;
+      });
+    }
+
+    console.info('multiplier 2', multiply(2, 1, 2, 3));
+
+
+
+    /****************************************************************************************/
+    /* Iterate over the following map and send the key value pair to the console            */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map */
+    /****************************************************************************************/
+
+    var myMap = new Map();
+    myMap.set(0, "zero");
+    myMap.set(1, "one");
+    myMap.set(2, "two");
+    myMap.set(3, "three");
+
+    myMap.forEach(function(value, key){
+      console.info('Map', key+' = '+value);
+    });
+
+
+
+    /****************************************************************************************/
+    /* Iterate over the following set and send the values to the console                    */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set */
+    /****************************************************************************************/
+
+    let mySet = new Set(["Modesto","Scripting","Language","Meetup"]);
+    mySet.forEach(function(value, key){
+      console.info('Set', value);
+    });
+
+
+    /***************************************************************************************************************/
+    /* Remove the console.info below and make this a tagged string that logs all the various parts to the console. */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings                          */
+    /***************************************************************************************************************/
+
+    var a = 5;
+    var b = 10;
+
+    function tagfunc(strings, ...vars){
+      strings.forEach((a)=>{console.info('tag string', a)});
+      vars.forEach((b)=>{console.info('tag vars', b)});
+    }
+
+    tagfunc `Hello ${ a + b } world ${ a * b}!`;
+  </script>
+</body>
+</html>
