@@ -44,10 +44,11 @@
 
 
 
-    /******************************************************************************************************/
-    /* Convert the following code to resolve a Promise when it's done instead of a timeout                */
-    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions        */
-    /******************************************************************************************************/
+    /********************************************************************************************/
+    /* Convert the following code from XHR to fetch                                             */
+    /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise */
+    /* https://github.com/github/fetch                                                          */
+    /********************************************************************************************/
 
     fetch('http://inventaweb.net/hitme.php').then(() => {
       console.info(response.text())
