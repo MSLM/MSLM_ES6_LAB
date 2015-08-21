@@ -40,7 +40,11 @@
       yield 3;
       return 4;
     }
-    console.info('Generator Returns:', foobar());
+    var foo = foobar();
+    console.info(foo.next());
+    console.info(foo.next());
+    console.info(foo.next());
+    console.info(foo.next());
 
 
 
